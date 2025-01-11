@@ -6,21 +6,30 @@
     "node": "22"
   },
   "scripts": {
-    "dev": "concurrently \"sass --watch style.scss ./build/style.css\" \"tsc --watch\" \"serve\""
+    "build": "npx tsc",
+    "server": "tsx watch node/server.ts",
+    "ssass": "sass --watch style.scss ./build/style.css",
+    "start": "start index.html",
+    "dev": "concurrently \"npm run ssass\" \"tsc --watch\" \"npm run server\"  \"serve\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.2"
+    "@types/cors": "^2.8.17",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "morgan": "^1.10.0",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
     "concurrently": "^7.0.0",
-    "nodemon": "^2.0.16",
+    "nodemon": "^2.0.22",
     "sass": "^1.49.9",
     "serve": "^14.2.4",
     "tsx": "^4.19.2",
-    "typescript": "^5.0.0"
+    "typescript": "^5.7.3"
   }
 }
